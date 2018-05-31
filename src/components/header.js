@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
+import '../css/styles.css'
 
-const user = {
-    name: 'Dan',
-    lastname: 'Norman',
-    age: '21'
-}
+class Header extends Component {
+    
+    state = {
+        keywords: ''
+    }
 
-const Header = () => {
-    return (
-        <div>
-            <div>{user.name}</div>
-            <div>{user.lastname}</div>
-            <div>{user.age}</div>
-        </div>
-    )
-}
+    inputChangeHandler = (event) => {
+        this.setState({
+            keywords: event.target.value
+        })
+    }
+
+    render(){
+        return (
+            <header>
+                <div className='logo'>Logo</div>
+                <input type="text" onChange={this.inputChangeHandler}/>
+            </header>
+        )
+    }
+}    
 
 export default Header
